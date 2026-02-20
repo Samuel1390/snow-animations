@@ -1,5 +1,5 @@
 import React from "react";
-import { useAnimationContext } from "./AnimationContext";
+import { useAnimationContext } from "./context/AnimationContext";
 interface Props {
   name: string;
   description?: string;

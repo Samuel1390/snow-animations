@@ -1,7 +1,8 @@
 "use client";
-import { useModal } from "./ModalContext";
+import "../styles/animations.css";
+import { useModal } from "./context/ModalContext";
 import ExampleCard from "./Examples/ExampleCard";
-import { useAnimationContext } from "./AnimationContext";
+import { useAnimationContext } from "./context/AnimationContext";
 import Code from "./functions/CodeClass";
 import CodeBlock from "./CodeBlock";
 import { animationClasses } from "../lib/animateClasses";
@@ -32,7 +33,6 @@ export default function AnimationModal() {
   const fullCssCode = defaultProperties
     ? Code.getClassAndKeyFrames(animationClass, keyframes) // Ambos retornan la misma estructura de codigo pero reciben diferentes tipos de argumentos
     : Code.getFullCssCode(currentOptions); // el de arriba espara las animaciones por defecto y este es para valores dinamicos
-  const animationValues = Code.getAnimationValues(currentOptions);
 
   const exampleTypes = ["text", "button", "image", "card"] as const;
 
@@ -72,14 +72,12 @@ export default function AnimationModal() {
           ))}
         </div>
 
-        <div className="mt-6 bg-neutral-200 dark:bg-neutral-900 border border-gray-300 dark:border-gray-600 rounded-lg">
-          <div className="w-full p-2">
-            <h3 className="font-semibold text-neutral-700 dark:text-gray-300">
-              CSS
-            </h3>
-          </div>
-          <CodeBlock code={fullCssCode as string} />
-        </div>
+        <CodeBlock
+          maxHeight={300}
+          maxWidth={400}
+          code={fullCssCode as string}
+          type="css"
+        />
       </div>
     </div>
   );

@@ -10,7 +10,7 @@ const DEFAULT_SETTINGS: AnimationSettings = {
   globalPlay: false,
   duration: 0.5,
   delay: 0,
-  timingFunction: "default",
+  timingFunction: "ease-in-out",
   defaultProperties: true,
 };
 
@@ -27,8 +27,10 @@ export const AnimationProvider = ({ children }: { children: ReactNode }) => {
     setSettings((prev) => ({
       ...prev,
       timingFunction: newTiming,
-      defaultProperties: newTiming === "default" ? true : false,
     }));
+  };
+  const setDefaultProperties = (newValue: boolean) => {
+    setSettings((prev) => ({ ...prev, defaultProperties: newValue }));
   };
 
   const setDuration = (duration: number) => {
@@ -42,6 +44,12 @@ export const AnimationProvider = ({ children }: { children: ReactNode }) => {
   const toggleGlobalPlay = () => {
     setSettings((prev) => ({ ...prev, globalPlay: !prev.globalPlay }));
   };
+  const toggleDefaultProperties = () => {
+    setSettings((prev) => ({
+      ...prev,
+      defaultProperties: !prev.defaultProperties,
+    }));
+  };
 
   return (
     <AnimationContext.Provider
@@ -51,7 +59,9 @@ export const AnimationProvider = ({ children }: { children: ReactNode }) => {
         setDuration,
         setDelay,
         setTimingFunction,
+        setDefaultProperties,
         toggleGlobalPlay,
+        toggleDefaultProperties,
       }}
     >
       {children}

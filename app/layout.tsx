@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { AnimationProvider } from "./components/AnimationContext";
-import "./styles/animations.css";
-import { ModalProvider } from "./components/ModalContext";
+
+import { AnimationProvider } from "./components/context/AnimationContext";
+import { ModalProvider } from "./components/context/ModalContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {

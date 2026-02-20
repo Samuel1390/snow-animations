@@ -1,9 +1,9 @@
 "use client";
 import "../styles/pageAnimations.css";
-import { useAnimationContext } from "./AnimationContext";
+import { useAnimationContext } from "./context/AnimationContext";
 import useActiveOption from "./hooks/useActiveOption";
 import CardControls from "./CardControls";
-import { useModal } from "./ModalContext";
+import { useModal } from "./context/ModalContext";
 import CodeBlock from "./CodeBlock";
 import useIntersectionObserver from "./hooks/useIntersectionObserver";
 import { animationClasses } from "../lib/animateClasses";
@@ -21,9 +21,9 @@ export default function AnimationCard({
   indexData,
 }: AnimationCardProps) {
   const { elementRef: cardRef, isVisible } = useIntersectionObserver();
+  const { active, handleActive } = useActiveOption();
   const { duration, globalPlay, delay, timingFunction, defaultProperties } =
     useAnimationContext();
-  const { active, handleActive } = useActiveOption();
   const { openModal } = useModal();
   const cardTransitionDelay = {
     transitionDelay: `0.${indexData.toString()}s`,
@@ -67,7 +67,10 @@ export default function AnimationCard({
       onMouseLeave={() => setIsHovering(false)}
     >
       <CardControls active={active} handleActive={handleActive} />
-      <div className={`p-6 ${cardRef}`} onClick={handleOpenModal}>
+      <div
+        className={`${active === "overview" ? "p-6" : "p-3"} `}
+        onClick={handleOpenModal}
+      >
         {active === "overview" && (
           <Overview
             name={name}
@@ -77,7 +80,14 @@ export default function AnimationCard({
           />
         )}
 
-        {active === "code" && <CodeBlock code={fullCssCode as string} />}
+        {active === "code" && (
+          <CodeBlock
+            type="css"
+            maxWidth={400}
+            maxHeight={180}
+            code={fullCssCode as string}
+          />
+        )}
       </div>
     </div>
   );

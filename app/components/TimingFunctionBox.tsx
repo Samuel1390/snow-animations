@@ -1,21 +1,21 @@
 "use client";
 import "../styles/pageAnimations.css";
 import React, { useEffect, useState } from "react";
-import { useAnimationContext } from "./AnimationContext";
+import { useAnimationContext } from "./context/AnimationContext";
 import { PlayIcon } from "@heroicons/react/16/solid";
 import { OptionsToGetCssValues } from "../types";
 import Code from "./functions/CodeClass";
 
 const TimingFunctionBox = () => {
   const [play, setPlay] = useState(false);
-  const { timingFunction, duration } = useAnimationContext();
-  const timingFunctionWithOutDefault =
-    timingFunction !== "default" ? timingFunction : "ease-in-out";
+  const { timingFunction, duration, defaultProperties } = useAnimationContext();
+  const timingFunctionWithOutDefault = defaultProperties
+    ? timingFunction
+    : "ease-in-out";
   const [localState, setLocalState] = useState({
     timingFunctionWithOutDefault,
     duration,
   });
-  console.log(timingFunctionWithOutDefault);
   const defaultSettings: OptionsToGetCssValues = {
     infinite: false,
     delay: 0,

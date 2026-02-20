@@ -4,7 +4,7 @@ import Card from "./Card";
 import Image from "next/image";
 import "../../styles/animations.css";
 import Code from "../functions/CodeClass";
-import { useAnimationContext } from "../AnimationContext";
+import { useAnimationContext } from "../context/AnimationContext";
 interface ExampleCardProps {
   type: "text" | "button" | "image" | "card";
   selectedAnimation: OptionsToCode;

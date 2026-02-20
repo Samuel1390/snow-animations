@@ -1,4 +1,4 @@
-import { OptionsToCode, OptionsToGetCssValues } from "@/app/types";
+import { OptionsToCode, Blocks, OptionsToGetCssValues } from "@/app/types";
 class Code {
   static getFullCssCode(optionsToCode: OptionsToCode | null | undefined) {
     if (optionsToCode) {
@@ -48,6 +48,32 @@ ${keyframes}`;
     /* Keyframes*/
     ${keyframes}
     `;
+  }
+  static gethtmlCode(block: Blocks[number]) {
+    return `
+  <div class="reveal">
+      <h2>${block.name}</h2>      
+      <!-- Your content -->
+  </div>`;
+  }
+  static getJSCode(block: Blocks[number]) {
+    return `
+  document.addEventListener("DOMContentLoaded", function() {
+  const reveals = document.querySelectorAll('.reveal');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("${block.animation}";
+        // for unobserve the element when is out from the view
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2, rootMargin: "0px 0px -50px 0px" }); // adjust to you need
+
+  reveals.forEach(el => observer.observe(el));
+});
+  `;
   }
 }
 export default Code;

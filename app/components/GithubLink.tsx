@@ -19,7 +19,7 @@ const GitHubLink: React.FC<GitHubLinkProps> = ({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex  bg-[#101411] border border-neutral-300 hover:text-[#101411] opacity-100 relative z-30 items-center gap-2 px-8 py-2 rounded-md shadow-md shadow-neutral-900/50
+      className={`animate-slide-in-bottom inline-flex  bg-[#101411] border border-neutral-300 hover:text-[#101411] opacity-100 relative z-30 items-center gap-2 px-8 py-2 rounded-md shadow-md shadow-neutral-900/50
         text-neutral-50 hover:bg-neutral-50 duration-400 transition-colors m-3
         ${className}`}
       aria-label={label}
