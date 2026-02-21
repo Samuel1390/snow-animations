@@ -16,7 +16,7 @@ const ABOUT_DEV = [
   },
   {
     title: "Contribute to the project",
-    href: "issue",
+    href: "https://github.com/Samuel1390/snow-animations",
   },
 ];
 const CREATED_WITH_LiNKS = [

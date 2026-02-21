@@ -23,7 +23,10 @@ const Hero = () => {
         </span>
         for developers. Click any card to copy the code.
       </p>
-      <GitHubLink label="Repository" href="#" />
+      <GitHubLink
+        label="Repository"
+        href="https://github.com/Samuel1390/snow-animations"
+      />
       <AnimateGrid />
     </section>
   );
