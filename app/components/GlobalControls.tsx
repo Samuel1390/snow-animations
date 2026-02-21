@@ -1,7 +1,6 @@
 "use client";
 import { ChangeEvent } from "react";
 import animations from "../animations";
-import { useAnimationContext } from "./context/AnimationContext";
 import { GridContextType } from "../types";
 import { TimingFunction, AnimationContextType } from "../types";
 const STOP_ALL_CLASS =
@@ -118,7 +117,6 @@ export default function GlobalControls({ context }: Props) {
             Duration:
           </label>
           <input
-            style={{ appearance: "none", WebkitAppearance: "none" }}
             title="animation duration"
             disabled={defaultProperties}
             id="duration"
@@ -142,7 +140,6 @@ export default function GlobalControls({ context }: Props) {
             Delay:
           </label>
           <input
-            style={{ appearance: "none", WebkitAppearance: "none" }}
             title="animation delay"
             disabled={defaultProperties}
             id="delay"
