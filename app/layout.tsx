@@ -25,9 +25,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Snow Animations",
     description: "Beautiful CSS animations ready to copy and paste",
-    url: "",
+    url: "https://github.com/Samuel1390/snow-animations/blob/main/public/og-image.png?raw=true",
     siteName: "Snow Animations",
-    images: ["./og-image.png"],
   },
 };
 
