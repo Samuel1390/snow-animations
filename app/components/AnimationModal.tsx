@@ -57,11 +57,20 @@ export default function AnimationModal() {
           </button>
         </div>
 
-        <p className="text-gray-600 dark:text-gray-400 mb-6">
-          The animation applyed to different elements. Everything uses the same
-          global settings (duration: {duration}s, delay: {delay}s, timing
-          function: {timingFunction}).
-        </p>
+        {defaultProperties ? (
+          <p className="text-gray-600 dark:text-gray-400 mb-6">
+            The animation applyed to different elements. This animation uses the
+            default properties, if you want to change the properties go back and
+            toggle the &quot;Use default properties&quot; button off, this will
+            make the animation use the global properties that you have set.
+          </p>
+        ) : (
+          <p className="text-gray-600 dark:text-gray-400 mb-6">
+            The animation applyed to different elements. Everything uses the
+            same global settings (duration: {duration}s, delay: {delay}s, timing
+            function: {timingFunction}).
+          </p>
+        )}
         <div className="grid grid-cols-1 sm:grid-cols-2 overflow-hidden gap-4">
           {exampleTypes.map((type) => (
             <ExampleCard
@@ -74,7 +83,7 @@ export default function AnimationModal() {
 
         <CodeBlock
           maxHeight={300}
-          maxWidth={400}
+          maxWidth={700}
           code={fullCssCode as string}
           type="css"
         />

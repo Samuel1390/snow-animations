@@ -24,7 +24,6 @@ export default function ExampleCard({
     infinite,
     globalPlay: true,
   });
-  console.log(selectedAnimation);
   const optionsToValue: OptionsToGetCssValues = {
     infinite,
     duration,

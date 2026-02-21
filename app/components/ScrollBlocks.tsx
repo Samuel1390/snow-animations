@@ -39,6 +39,7 @@ const CSS_CODE = [
 
   `.animate-slide-in-left {
   animation: slide-in-left 0.6s ease-out forwards;
+  }
 
   @keyframes slide-in-left {
   0% {
@@ -49,7 +50,6 @@ const CSS_CODE = [
     transform: translateX(0);
     opacity: 1;
   }
-}
 
 }`,
 
@@ -85,10 +85,12 @@ const ScrollBlocks = ({
       animation={block.animation}
       threshold={0.3}
     >
-      <div className={`${block.className} p-8 rounded-xl shadow-lg`}>
-        <h3 className="text-2xl font-semibold mb-4">{block.name}</h3>
+      <div className={`${block.className} p-8 max-sm:p-3 rounded-xl shadow-lg`}>
+        <h3 className="text-2xl text-white font-semibold mb-4">{block.name}</h3>
         <button
-          className="bg-gray-50/20 px-4  py-2 rounded-full font-bold shadow-md shadow-neutral-900/50 text-shadow-2xs text-shadow-neutral-600/40"
+          className="bg-gray-50/20 px-4 cursor-pointer hover:opacity-70 transition-opacity
+          text-white py-2 rounded-full font-bold shadow-md shadow-neutral-900/50 text-shadow-2xs
+          text-shadow-neutral-600/40"
           onClick={() => setShowContent((prev) => !prev)}
         >
           {showContent ? "Hide code" : "Code"}

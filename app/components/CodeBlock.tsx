@@ -1,6 +1,8 @@
 "use client";
+import hljs from "highlight.js";
+import "highlight.js/styles/github-dark.css";
 
-import { CSSProperties, useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface CodeBlockProps {
   code: string;
@@ -22,7 +24,13 @@ export default function CodeBlock({
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
-
+  const codeRef = useRef<HTMLElement>(null);
+  useEffect(() => {
+    if (codeRef.current) {
+      codeRef.current.removeAttribute("data-highlighted");
+      hljs.highlightElement(codeRef.current);
+    }
+  }, [code, type]);
   return (
     <div className="mt-6 overflow-y-hidden bg-neutral-200 overflow-x-auto dark:bg-neutral-900 border border-gray-300 dark:border-gray-600 rounded-lg">
       <div className="w-full p-2">
@@ -36,9 +44,13 @@ export default function CodeBlock({
       >
         <pre
           style={{ scrollbarColor: "#fafafa77 transparent" }}
-          className="bg-gray-800 h-full overflow-auto dark:bg-gray-950 border border-gray-400 dark:border-gray-800 p-3 text-neutral-50 rounded-lg text-sm "
+          className="bg-gray-800 h-full overflow-auto dark:bg-gray-950 border border-gray-400 dark:border-gray-800 rounded-lg text-sm "
         >
-          <code>{code}</code>
+          {
+            <code ref={codeRef} className={`language-${type} h-full w-full`}>
+              {code}
+            </code>
+          }
         </pre>
         <button
           onClick={handleCopy}

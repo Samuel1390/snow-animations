@@ -28,11 +28,15 @@ export const BLOCKS = [
 
 const RevealOnScrollSection = () => {
   return (
-    <section className="my-10 max-w-7xl overflow-x-hidden mx-auto px-10 sm:px-6 lg:px-8">
-      <h2 className="text-3xl font-bold text-center mb-12">
-        Scroll Reveal Animations
-      </h2>
-      <div className="grid  rounded-md max-w-200 px-10 bg-slate-900 py-10 mx-auto grid-cols-1 gap-8">
+    <section
+      id="reveal-on-scroll-section"
+      className="my-10 max-sm:px-2 max-w-7xl overflow-x-hidden mx-auto px-10 sm:px-6 lg:px-8"
+    >
+      <h2 className="title">Scroll Reveal Animations</h2>
+      <p className="paragraph mb-7">
+        Scroll and observe the animation reveal effect.
+      </p>
+      <div className="grid rounded-md max-sm:px-3 max-w-200 px-10 bg-slate-300 dark:bg-slate-900 py-10 mx-auto grid-cols-1 gap-8">
         {BLOCKS.map((block, index) => (
           <ScrollBlocks key={index} index={index} block={block} />
         ))}

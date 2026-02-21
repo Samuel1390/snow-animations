@@ -1,4 +1,7 @@
 import { OptionsToCode, Blocks, OptionsToGetCssValues } from "@/app/types";
+import hljs from "highlight.js";
+import javascript from "highlight.js/lib/languages/javascript";
+hljs.registerLanguage("javascript", javascript);
 class Code {
   static getFullCssCode(optionsToCode: OptionsToCode | null | undefined) {
     if (optionsToCode) {

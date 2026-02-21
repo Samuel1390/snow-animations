@@ -12,15 +12,15 @@ import Overview from "./Overview";
 import keyframesMap from "../lib/keyframes";
 import useCycling from "./hooks/useCycling";
 import Code from "./functions/CodeClass";
-import { RefObject } from "react";
+import { RefObject, useEffect } from "react";
+import { useState } from "react";
 export default function AnimationCard({
-  name,
   cssClass,
   description,
   infinite = false,
   indexData,
 }: AnimationCardProps) {
-  const { elementRef: cardRef, isVisible } = useIntersectionObserver();
+  const { elementRef: cardRef, isVisible } = useIntersectionObserver(true);
   const { active, handleActive } = useActiveOption();
   const { duration, globalPlay, delay, timingFunction, defaultProperties } =
     useAnimationContext();
@@ -28,7 +28,7 @@ export default function AnimationCard({
   const cardTransitionDelay = {
     transitionDelay: `0.${indexData.toString()}s`,
   };
-  const animationName = name.replace("animate-", "");
+  const animationName = cssClass.replace("animate-", "");
   const animationClass = animationClasses[cssClass];
 
   const keyframes = keyframesMap[animationName] || "/* Keyframes not found */";
@@ -73,7 +73,7 @@ export default function AnimationCard({
       >
         {active === "overview" && (
           <Overview
-            name={name}
+            name={cssClass}
             description={description}
             shouldAnimate={shouldAnimate}
             animationValues={animationValues}

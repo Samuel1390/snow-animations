@@ -1,5 +1,5 @@
 "use client";
-import { RefObject, useEffect, useState } from "react";
+import { RefObject } from "react";
 import React from "react";
 import useIntersectionObserver from "./hooks/useIntersectionObserver";
 // por lo pronto estas cuatro
@@ -27,7 +27,7 @@ const RevealOnScroll: React.FC<RevealOnScrollProps> = ({
   rootMargin = "0px",
   className = "",
 }) => {
-  const { elementRef, isVisible } = useIntersectionObserver({
+  const { elementRef, isVisible } = useIntersectionObserver(false, {
     threshold,
     rootMargin,
   });
@@ -35,7 +35,7 @@ const RevealOnScroll: React.FC<RevealOnScrollProps> = ({
   return (
     <div
       ref={elementRef as RefObject<HTMLDivElement>}
-      className={`transition-all duration-700 ${className} ${
+      className={`${className} ${
         isVisible ? `animate-${animation}` : "opacity-0"
       }`}
     >

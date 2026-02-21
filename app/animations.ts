@@ -1,4 +1,12 @@
-const animations = [
+import { AnimationNameWithPrefix } from "./types";
+
+type Animations = Array<{
+  name: AnimationNameWithPrefix;
+  description: string;
+  infinite: boolean;
+}>;
+
+const animations: Animations = [
   {
     name: "animate-fade-in",
     description: "Simple fade in effect",
