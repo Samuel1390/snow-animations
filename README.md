@@ -2,14 +2,19 @@
 
 ## Css animations ready to use in your proyect. Snow contrast is a proyect created for improve the visual experience of the users in the winter season, and make agile the development of new proyects.
 
-### Wich problem resolve?. Snow animations was created for make your websites more attractive and dynamic, and make agile the development of new proyects. Although i still need make utility classes similary to tailwindcss, but i don't have the knowledge to do it. I'm learning. and soon i will make it for complete this project.
+### Wich problem resolve?.
 
-### You can contribute to this project. If you have any idea, suggestion, or you find any bug, please create an issue or a pull request. I will appreciate it. If you know npm packages for animations, please share it with me i would wish have this project publish in npm.
+Snow animations was created for make your websites more attractive and dynamic, and make agile the development of new proyects. Although i still need make utility classes similary to tailwindcss, but i don't have the knowledge to do it. I'm learning. and soon i will make it for complete this project.
+
+### You can contribute to this project.
+
+If you have any idea, suggestion, or you find any bug, please create an issue or a pull request. I will appreciate it. If you know npm packages for animations, please share it with me i would wish have this project publish in npm.
 
 ### This proyect is inspired by tailwind animations by Midudev and friends. I'm a big fan of his work and i would like to collaborate with him.
 
 ### Architecture
 
+```
 ├── README.md
 ├── app
 │   ├── Header.tsx
@@ -74,6 +79,7 @@
 │   └── window.svg
 ├── tailwind.config.js
 └── tsconfig.json
+```
 
 ### Stack
 
@@ -85,6 +91,6 @@
 
 ### How to use
 
-### for the moments you can use any animation copying the keyframes by pressing the "code" button in the animation card, but i repeat, i'm working in it for make it more easy to use publishing it in npm so you will can use the utility classes like tailwindcss.
+For the moments you can use any animation copying the keyframes by pressing the "code" button in the animation card, but i repeat, i'm working in it for make it more easy to use publishing it in npm so you will can use the utility classes like tailwindcss.
 
-### thanks for visiting my project, i hope you like it.
+Thanks for visiting my project, i hope you like it.
